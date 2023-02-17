@@ -1,0 +1,22 @@
+# Use an official Java runtime as a parent image
+FROM openjdk:11-jdk-slim
+
+# Set the working directory to /app
+WORKDIR /app
+
+# Copy the application JAR file and its dependencies to the container
+COPY target/my-spring-boot-app.jar /app
+
+# Expose port 8080 for the application
+EXPOSE 8080
+
+# Run the application when the container starts
+CMD ["java", "-jar", "my-spring-boot-app.jar"]
+
+second step 
+
+docker build -t my-spring-boot-app .
+
+third step 
+docker run -p 8080:8080 my-spring-boot-app
+
