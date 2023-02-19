@@ -1,0 +1,21 @@
+
+// this is the base package from docker hub
+FROM node
+// internal working directory
+WORKDIR /app
+// copying the package.json to /app directory
+// we are copying json file first and running npm install before copy all the files into to docke images
+// because this will help docker ro run from the cache because docker use images layer mean run from top to button
+// if package.json file didnot change then it will not run npm install becase the out pull will be same as previous
+// which helps to create new image fast
+COPY package.json /app
+
+// running command npm install
+RUN npm install
+copy all the fils to /app dirctory
+copy . /app
+
+// expose the port
+EXPOSE 80
+// running command to run node application
+CMD ["node", "server.js"]
