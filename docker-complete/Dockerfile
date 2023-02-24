@@ -5,10 +5,10 @@ FROM openjdk:17
 WORKDIR /app
 
 # Copy the application JAR file and its dependencies to the container
-COPY target/docker-complete-0.0.1-SNAPSHOT.jar /app
+COPY target/*.jar ./app.jar
 
 # Expose port 8080 for the application
 EXPOSE 8080
 
 # Run the application when the container starts
-CMD ["java", "-jar", "docker-complete-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "app.jar"]
