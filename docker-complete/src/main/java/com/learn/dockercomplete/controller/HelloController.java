@@ -46,7 +46,7 @@ public class HelloController {
 
         }
         try {
-            FileWriter myWriter = new FileWriter(fileCreatePojo.getFileName() + ".txt");
+            FileWriter myWriter = new FileWriter("/home/file/" + fileCreatePojo.getFileName() + ".txt");
             myWriter.write(fileCreatePojo.getContent());
             myWriter.close();
             System.out.println("Successfully wrote to the file.");
@@ -61,7 +61,7 @@ public class HelloController {
     @GetMapping("/readFile")
     public String readFile(@RequestParam("filename") String filename) throws IOException {
         // Passing the path to the file as a parameter
-        FileReader fr = new FileReader(filename+".txt");
+        FileReader fr = new FileReader("/home/file/" +filename+".txt");
         String result = "";
 
         // Declaring loop variable

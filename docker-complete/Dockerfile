@@ -10,5 +10,7 @@ COPY target/*.jar ./app.jar
 # Expose port 8080 for the application
 EXPOSE 8080
 
+VOLUME [ "/app/home/file" ]
+
 # Run the application when the container starts
 CMD ["java", "-jar", "app.jar"]
